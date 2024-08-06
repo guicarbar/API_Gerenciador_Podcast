@@ -6,7 +6,7 @@
 
 ## Sobre
 
-Projeto de uma API usando apenas NodeJS sem nenhum framework de uma gerenciador com filtros de Podcats usando HTTP modules.
+Esta é uma API em Node.js, sem a utilização de frameworks, para gerenciar podcasts. A API faz uso de módulos HTTP nativos e inclui uma funcionalidade de filtro para busca de podcasts pelo nome.
 
 ## Tecnologias :gem:
 
