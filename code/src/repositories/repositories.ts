@@ -1,17 +1,18 @@
-import { promises } from 'dns'
+// imports
 import fs from 'fs'
 import path from 'path'
 
+// path do json
 const pathData = path.join(__dirname, "../repositories/podcast.json")
 
-interface Podcast {
+// modelo obrigatorio
+export interface Podcast {
     podcastName: string
     episode: string
-    link: string
-    cover: string
     categories: string[]
 }
 
+// le o arquivo json
 export const repositoryPodcast = async (podcastName?: string): Promise<Podcast[]> => {
     const data = fs.readFileSync(pathData, "utf-8")
     let jsonFile = JSON.parse(data)

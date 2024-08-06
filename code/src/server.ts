@@ -1,12 +1,9 @@
-import * as HTTP from "http";
-import { getfilerEpisodes, getListEpisodes } from './controllers/controlller'
+// import
+import * as http from "http"
+import { app } from './app'
 
-const server = HTTP.createServer(
-    async (request: HTTP.IncomingMessage, response: HTTP.ServerResponse) => {
-        if (request.method === 'GET' && request.url === '/api/list') await getListEpisodes(request, response)
-    
-        if (request.method === 'GET' && request.url === '/api/episode') await getfilerEpisodes(request, response)
-    }
-)
+//creat server
+const server = http.createServer(app)
 
-server.listen(process.env.PORT, () => {console.log('Servidor iniciado!')})
+const port = process.env.PORT
+server.listen(port, () => {console.log(`Servidor iniciado na porta: ${port}`)})
