@@ -1,6 +1,6 @@
 🟢 🟡 🔴
 
-# API_Gerenciador_Podcast
+# API_Podcast_Manager
 
 :microphone: :microphone:
 
