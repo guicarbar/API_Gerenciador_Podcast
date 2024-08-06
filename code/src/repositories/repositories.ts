@@ -2,7 +2,7 @@ import { promises } from 'dns'
 import fs from 'fs'
 import path from 'path'
 
-const pathdata = path.join(__dirname, "../repositories/podcast.json")
+const pathData = path.join(__dirname, "../repositories/podcast.json")
 
 interface Podcast {
     podcastName: string
@@ -12,8 +12,13 @@ interface Podcast {
     categories: string[]
 }
 
-export const repositoryPodcast = async (): Promise<Podcast[]> => {
-    const data = fs.readFileSync(pathdata, "utf-8")
-    const jsonFile = JSON.parse(data)
+export const repositoryPodcast = async (podcastName?: string): Promise<Podcast[]> => {
+    const data = fs.readFileSync(pathData, "utf-8")
+    let jsonFile = JSON.parse(data)
+
+    if (podcastName) {
+        jsonFile = jsonFile.filter((podcast: Podcast) => podcast.podcastName === podcastName)
+    }
+
     return jsonFile
 }
